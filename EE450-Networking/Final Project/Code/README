@@ -1,0 +1,26 @@
+Sadaf Shahsahebi
+SID# 4512-7932-70
+
+* For this assignment I have completed Phase1 and Phase2 implementation, along with using fork() in Branch.c and User.c. I was not able to get Phase 3 completed/functional.
+
+* There are three code files: Database.c, Branch.c, User.c.
+     Database.c is by far the most complex. It first creates a TCP socket and then binds it to the static port 3570. From there it starts listening on the socket for 3 incoming connections. It accepts the connections and forks a separate child process for each. The child process receives the data. This data is the branch car information for Phase 1. It then stores the data in a linked-list of car structs. Once this is all done, Database.c is done with phase 1 and moves on to Phase 2. In phase 2 it creates a UDP socket and binds it to static port 3670. It forks 2 child processes, one for each user that is requesting car information. From within each childprocess, it accepts 3 datagrams from the sender. Each datagram contains the user number and car make and model. The database then replies using the same socket. It sends the user the smallest branch number that has the car.
+     Branch.c forks 3 child processes, one for each branch. From within the child process, it creates a TCP socket on a dynamically selected port number and connects with the central database. It then opens its respective input file and reads it line by line. For each line, it determins the make and model of a car. It first identifies its branch number with the database by sending a message and then sends the 5 car messages.
+     User.c fork 2 child processes, one for each user. From within the child process, it creates a UDP socket to the central database and then opens it's data file for reading. It reads the file line by line, and for each line it creates a datagram with the user number and car make and model and sends the data to the central database. It then receives from the database the number of the branch that has the car.
+     In all of these files, the sockets are closed, processes cleaned up, and file handles closed before the programs exit.
+
+* In order to run the programs, you should run `make` first. Then `Database`, brief pause, `Branch`, brief pause, `User`. Nothing else needs to be done.
+
+* In phase 1, each branch from within it's own child process identifies itself by sending a packet with the branch number as a string (i.e., "1"). Then it sends a separate message that's just a "\n". Since it's streaming, the "\n" acts like a delimeter. Then, the branch sends its car data one at a time. Those messages are simply the car name (i.e., "Toyota Camry") followed by a "\n" message. The database does not reply in phase 1.
+  In phase 2, a user requests branch information from the database by sending a message formated as "<User#>#carmodel", for example "<User1>#Toyota Camry". The database replies with the branch number, i.e. "2".
+
+* There are no idiosyncrasies to this project. Phase 1 and Phase 2 should work correctly at all times.
+
+* The only place I looked up code online was how to reap zombie processes. The code that was shown in Beej's guide doesn't run properly on Solaris machines. Instead, I found this website (http://www.linuxhowtos.org/C_C++/socket.htm) that showed how to use signal on Solaris. The code is inside my Database.c file:
+
+	void *sigchld_handler(int n)
+	{
+		wait3(NULL,WNOHANG,NULL);
+	}
+
+	signal(SIGCHLD, sigchld_handler);

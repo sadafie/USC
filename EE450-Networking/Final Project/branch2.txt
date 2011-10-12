@@ -1,0 +1,5 @@
+Toyota Prius#80
+Toyota Camry#75
+BMW X3#155
+BMW 550#160
+Honda Civic#65
