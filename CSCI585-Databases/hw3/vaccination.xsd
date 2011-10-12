@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:simpleType name="idType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[A-Z]{3,5}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="phoneAlphaType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{3}[0-9A-Z]{7}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="phoneType">
+  <xs:restriction base="xs:integer">
+    <xs:pattern value="[0-9]{10}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="numType">
+  <xs:restriction base="xs:integer">
+    <xs:minInclusive value="2"/>     
+    <xs:maxInclusive value="100"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="socialType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="[0-9]{3}-[0-9]{2}-[0-9]{4}"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="genderType">
+  <xs:restriction base="xs:string">
+    <xs:pattern value="M|F"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:element name="patientgroup">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="group" type="xs:string"/>
+      <xs:element name="quota" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="patient">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="ssn" type="socialType"/>
+      <xs:element name="pname" type="xs:string"/>
+      <xs:element name="dob" type="xs:date"/>
+      <xs:element name="gender" type="genderType"/>
+      <xs:element name="homephone" type="phoneType"/>
+      <xs:element name="cellphone" type="phoneType" minOccurs="0"/>
+      <xs:element name="clinic" type="idType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+		
+<xs:element name="clinic">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="id" type="idType"/>
+      <xs:element name="cname" type="xs:string"/>
+      <xs:element name="address" type="xs:string"/>
+      <xs:element name="group" type="xs:string" maxOccurs="unbounded"/>
+      <xs:element name="phone" type="phoneAlphaType" maxOccurs="unbounded"/>
+      <xs:element name="fax" type="phoneAlphaType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="employees" type="numType"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="vaccinations">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="patientgroup" ref="patientgroup" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="patient" ref="patient" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="clinic" ref="clinic" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

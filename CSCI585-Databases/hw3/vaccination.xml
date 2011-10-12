@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet type="text/xsl" href="vaccination.xsl"?>
+<vaccinations>
+	<patientgroup>
+	  <group>Infants</group>
+	  <quota>260</quota>
+	</patientgroup>
+	<patientgroup>
+	  <group>Pregnant Women</group>
+	  <quota>150</quota>
+	</patientgroup>
+	<patientgroup>
+	  <group>Caregivers</group>
+	  <quota>100</quota>
+	</patientgroup>
+	<patientgroup>
+	  <group>Seniors</group>
+	  <quota>70</quota>
+	</patientgroup>
+	<patientgroup>
+	  <group>Healthcare Workers</group>
+	  <quota>35</quota>
+	</patientgroup>
+	<clinic>
+	  <id>HKP</id>
+	  <cname>Healthy Kids Pediatrics</cname>
+	  <address>510 W 27th St, Los Angeles, CA 90007</address>
+	  <group>Infants</group>
+	  <group>Caregivers</group>
+	  <phone>2135555845</phone>
+	  <fax>2134525684</fax>
+	  <employees>6</employees>
+	</clinic>
+	<clinic>
+	  <id>OSP</id>
+	  <cname>Olive Street Pediatrics</cname>
+	  <address>1500 Olive St, Los Angeles, CA 90015</address>
+	  <group>Infants</group>
+	  <group>Caregivers</group>
+	  <group>Pregnant Women</group>
+	  <group>Healthcare Workers</group>
+	  <phone>2135127457</phone>
+	  <phone>2135127465</phone>
+	  <employees>12</employees>
+	</clinic>
+	<clinic>
+	  <id>SMH</id>
+	  <cname>Santa Monica Children Hospital</cname>
+	  <address>1324 Wilshire Blvd, Santa Monica, CA 90401</address>
+	  <group>Infants</group>
+	  <group>Pregnant Women</group>
+	  <group>Healthcare Workers</group>
+	  <phone>310695CARE</phone>
+	  <fax>3106953653</fax>
+	  <fax>3106953654</fax>
+	  <employees>85</employees>
+	</clinic>		
+	<clinic>
+	  <id>BHS</id>
+	  <cname>Beverly Hills Senior Center</cname>
+	  <address>225 Rodeo Drive, Beverly Hills, CA 90210</address>
+	  <group>Caregivers</group>
+	  <group>Seniors</group>
+	  <phone>3105559021</phone>
+	  <fax>3105559654</fax>
+	  <employees>7</employees>
+	</clinic>
+	<clinic>
+	  <id>HCC</id>
+	  <cname>Hollywood Care Center</cname>
+	  <address>4325 Melrose Pl, Hollywood, CA 90027</address>
+	  <group>Pregnant Women</group>
+	  <group>Seniors</group>
+	  <group>Healthcare Workers</group>
+	  <phone>4245213625</phone>
+	  <fax>4245213648</fax>
+	  <employees>53</employees>
+	</clinic>
+	<clinic>
+	  <id>WWC</id>
+	  <cname>Wilsher Wellness Center</cname>
+	  <address>652 Wilshire Blvd, Los Angeles, CA 90017</address>
+	  <group>Seniors</group>
+	  <phone>3236987589</phone>
+	  <phone>866555WELL</phone>
+	  <fax>3236987574</fax>
+	  <employees>40</employees>
+	</clinic>
+	<clinic>
+	  <id>MUC</id>
+	  <cname>Malibu Urgent Care</cname>
+	  <address>3000 Pacific Coast Highway, Malibu, CA 90265</address>
+	  <group>Infants</group>
+	  <group>Pregnant Women</group>
+	  <group>Caregivers</group>
+	  <group>Seniors</group>
+	  <group>Healthcare Workers</group>
+	  <phone>8004URGENT</phone>
+	  <employees>9</employees>
+	</clinic>
+	<patient>
+	  <ssn>111-11-1111</ssn>
+	  <pname>Alicia</pname>
+	  <dob>2009-01-04</dob>
+	  <gender>F</gender>
+	  <homephone>2131111111</homephone>
+	  <cellphone>2131111111</cellphone>
+	  <clinic>WWC</clinic>
+	</patient>
+	<patient>
+	  <ssn>222-22-2222</ssn>
+	  <pname>Jim</pname>
+	  <dob>1976-02-06</dob>
+	  <gender>M</gender>
+	  <homephone>310-222-2222</homephone>
+	  <cellphone>310-222-2222</cellphone>
+	  <clinic>SMH</clinic>
+	</patient>
+	<patient>
+	  <ssn>333-33-3333</ssn>
+	  <pname>Sharon</pname>
+	  <dob>1942-03-07</dob>
+	  <gender>F</gender>
+	  <homephone>4243333339</homephone>
+	  <clinic>MUC</clinic>
+	</patient>
+	<patient>
+	  <ssn>444-44-4444</ssn>
+	  <pname>Veronica</pname>
+	  <dob>2000-04-08</dob>
+	  <gender>F</gender>
+	  <homephone>6264444444</homephone>
+	  <cellphone>6264444444</cellphone>
+	  <clinic>BHS</clinic>
+	</patient>
+	<patient>
+	  <ssn>555-55-5555</ssn>
+	  <pname>Andrea</pname>
+	  <dob>2009-07-03</dob>
+	  <gender>F</gender>
+	  <homephone>818-555-5555</homephone>
+	  <clinic>OSP</clinic>
+	</patient>
+	<patient>
+	  <ssn>666-66-6666</ssn>
+	  <pname>Chris</pname>
+	  <dob>1973-05-05</dob>
+	  <gender>M</gender>
+	  <homephone>3236666666</homephone>
+	  <cellphone>2136666666</cellphone>
+	  <clinic>MUC</clinic>
+	</patient>
+	<patient>
+	  <ssn>777-77-7777</ssn>
+	  <pname>Nanacy</pname>
+	  <dob>1994-06-09</dob>
+	  <gender>F</gender>
+	  <homephone>909-777-7777</homephone>
+	  <clinic>HKP</clinic>
+	</patient>
+	<patient>
+	  <ssn>888-88-8888</ssn>
+	  <pname>Lee</pname>
+	  <dob>1987-07-06</dob>
+	  <gender>M</gender>
+	  <homephone>949-881-8888</homephone>
+	  <cellphone>424-881-8888</cellphone>
+	  <clinic>HCCS</clinic>
+	</patient>
+	<patient>
+	  <ssn>999-99-9999</ssn>
+	  <pname>Eric</pname>
+	  <dob>2008-11-02</dob>
+	  <gender>M</gender>
+	  <homephone>6269819999</homephone>
+	  <clinic>MUC</clinic>
+	</patient>
+</vaccinations>
